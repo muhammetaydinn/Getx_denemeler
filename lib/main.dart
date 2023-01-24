@@ -16,9 +16,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       translations: Messages(), // your translations
-      locale:
-          Locale('tr', 'TR'), // translations will be displayed in that locale
-      fallbackLocale: Locale('en',
+      locale: const Locale(
+          'tr', 'TR'), // translations will be displayed in that locale
+      fallbackLocale: const Locale('en',
           'UK'), // specify the fallback locale in case an invalid locale is selected.
 
       title: 'Flutter Demo',
@@ -40,7 +40,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  SayacController _controller = Get.put(SayacController());
+  final SayacController _controller = Get.put(SayacController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,14 +54,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 _controller.artir();
                 print(_controller.sayac);
               },
-              child: Icon(Icons.add)),
+              child: const Icon(Icons.add)),
           FloatingActionButton(
               heroTag: 2,
               onPressed: () {
                 _controller.azalt();
                 print(_controller.sayac);
               },
-              child: Icon(Icons.remove)),
+              child: const Icon(Icons.remove)),
           FloatingActionButton(
               heroTag: 3,
               onPressed: () {
@@ -71,19 +71,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   Get.changeTheme(ThemeData.dark());
                 }
               },
-              child: Icon(Icons.swap_calls)),
+              child: const Icon(Icons.swap_calls)),
           FloatingActionButton(
               heroTag: 4,
               onPressed: () {
                 _controller.snack();
               },
-              child: Icon(Icons.add)),
+              child: const Icon(Icons.add)),
           FloatingActionButton(
               heroTag: 5,
               onPressed: () {
-                Get.to(NewPage());
+                Get.to(const NewPage());
               },
-              child: Icon(Icons.arrow_back)),
+              child: const Icon(Icons.arrow_back)),
         ],
       ),
     );
@@ -96,12 +96,12 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Text(
             "button_text".tr,
-            style: TextStyle(fontSize: 25),
+            style: const TextStyle(fontSize: 25),
           ),
           Obx(
             () => Text(
               _controller.sayac.toString(),
-              style: TextStyle(fontSize: 31),
+              style: const TextStyle(fontSize: 31),
             ),
           )
         ],
@@ -121,13 +121,13 @@ class NewPage extends StatelessWidget {
           children: [
             Text(
               "hello".tr,
-              style: TextStyle(fontSize: 31),
+              style: const TextStyle(fontSize: 31),
             ),
             ElevatedButton(
                 onPressed: () {
                   Get.back();
                 },
-                child: Text("adasdas"))
+                child: const Text("adasdas"))
           ],
         ),
       ),
